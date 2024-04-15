@@ -9,12 +9,12 @@ const port = 3000;
 
 // app.use(cors());
 
-// app.use(cors(
-//     {
-//         origin: ["https://ip-address-tracker-backend.vercel.app/"],
-//         methods: ["GET", "POST"]
-//     }
-// ));
+app.use(cors(
+    {
+        origin: ["https://ip-tracker-topaz.vercel.app/"],
+        methods: ["GET", "POST"]
+    }
+));
 
 app.use(bodyParser.json());
 
@@ -42,6 +42,6 @@ app.post("/", (req, res) => {
     res.json({ message: "Data received successfully!" });
 })
 
-app.listen(port, () => {
-    console.log(`Examplar app running at ${port}`);
-})
+// app.listen(port, () => {
+//     console.log(`Examplar app running at ${port}`);
+// })
