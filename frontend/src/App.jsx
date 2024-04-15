@@ -21,7 +21,7 @@ function App() {
   const handleClick = async (event) => {
     let ipPattern = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     if(ipPattern.test(ipAddress)) {
-      let a = await fetch(`http://127.0.0.1:3000/?data=${encodeURIComponent(userIPAddress)}`, { method: "GET" });
+      let a = await fetch(`https://ip-tracker-server.vercel.app/?data=${encodeURIComponent(userIPAddress)}`, { method: "GET" });
       let r = await a.json();
       setIpTracker(r);
       console.log(ipTracker);
@@ -50,7 +50,7 @@ function App() {
       console.log(response.data.ip);
       setIpComplete(true);
 
-      let a = await fetch(`https://127.0.0.1:3000/?data=${encodeURIComponent(response.data.ip)}`, { method: "GET" });
+      let a = await fetch(`https://ip-tracker-server.vercel.app/?data=${encodeURIComponent(response.data.ip)}`, { method: "GET" });
       let r = await a.json();
       setIpTracker(r);
       console.log(r);
