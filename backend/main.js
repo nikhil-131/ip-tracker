@@ -5,14 +5,15 @@ import bodyParser from "body-parser";
 import fetch from "node-fetch"
 
 const app = express();
-const port = 3000;
+// const port = 3000;
 
 // app.use(cors());
 
 app.use(cors(
     {
-        origin: ["https://ip-tracker-topaz.vercel.app/"],
-        methods: ["GET", "POST"]
+        origin: ["https://ip-tracker-server.vercel.app/"],
+        methods: ["GET", "POST"],
+        credentials: true
     }
 ));
 
