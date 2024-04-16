@@ -12,8 +12,7 @@ app.use(cors());
 app.use(cors(
     {
         origin: ["https://ip-tracker-topaz.vercel.app/"],
-        methods: ["GET", "POST"],
-        credentials: true
+        methods: ["GET", "POST"]
     }
 ));
 
