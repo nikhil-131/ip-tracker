@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors(
     {
-        origin: ["https://ip-tracker-server.vercel.app/"],
+        origin: ["https://ip-tracker-topaz.vercel.app/"],
         methods: ["GET", "POST"],
         credentials: true
     }
