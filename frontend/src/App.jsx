@@ -17,13 +17,11 @@ function App() {
   const [ipAddress, setIpAddress] = useState('');
   const [userIPAddress, setUserIPAddress] = useState('');
   const [ipComplete, setIpComplete] = useState(null);
-  // axios.defaults.withCredentials = true;
 
   const handleClick = async (event) => {
     let ipPattern = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     if(ipPattern.test(ipAddress)) {
-      // axios.defaults.withCredentials = true;
-      let a = await fetch(`https://ip-tracker-server.vercel.app/?data=${encodeURIComponent(userIPAddress)}`, {method: "GET", credentials: 'include'});
+      let a = await fetch(`https://ip-tracker-server.vercel.app/`, { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({userIP: userIPAddress})});
       let r = await a.json();
       setIpTracker(r);
       console.log(ipTracker);
@@ -50,8 +48,11 @@ function App() {
       const response = await axios.get("https://api.ipify.org?format=json");
       setIpAddress(response.data.ip);
       console.log(response.data.ip);
+      let userIP = response.data.ip;
       setIpComplete(true);
-      let a = await fetch(`https://ip-tracker-server.vercel.app/?data=${encodeURIComponent(response.data.ip)}`, {method: "GET", credentials: 'include'});
+      // axios.defaults.withCredentials = true;
+      let a = await fetch(`https://ip-tracker-server.vercel.app/`, { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({userIP: userIP})});
+      // console.log(a);
       let r = await a.json();
       setIpTracker(r);
       console.log(r);
