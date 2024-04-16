@@ -17,7 +17,7 @@ function App() {
   const [ipAddress, setIpAddress] = useState('');
   const [userIPAddress, setUserIPAddress] = useState('');
   const [ipComplete, setIpComplete] = useState(null);
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
 
   const handleClick = async (event) => {
     let ipPattern = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
