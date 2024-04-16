@@ -18,6 +18,14 @@ app.use(cors(
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://ip-tracker-topaz.vercel.app/');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 var data;
 // const fetchData = async () => {
 //     let api = await fetch("https://geo.ipify.org/api/v2/country,city?apiKey=at_u9ZnWhe2bJYyc8piTVt897VBMFoPM&ipAddress=8.8.8.8");
