@@ -9,12 +9,12 @@ const app = express();
 
 // app.use(cors());
 
-app.use(cors(
-    {
-        origin: ["https://ip-address-tracker-backend.vercel.app/"],
-        methods: ["GET", "POST"]
-    }
-));
+app.use(cors({
+    origin: "https://ip-tracker-topaz.vercel.app",
+    credentials: true,
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(bodyParser.json());
 
