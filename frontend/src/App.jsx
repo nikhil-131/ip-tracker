@@ -51,7 +51,7 @@ function App() {
       let userIP = response.data.ip;
       setIpComplete(true);
       // axios.defaults.withCredentials = true;
-      let a = await fetch(`https://ip-tracker-server.vercel.app/`, { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({userIP: userIP})});
+      let a = await fetch(`https://ip-tracker-server.vercel.app/`, { method: "POST", headers: {"Content-Type": "application/json", "Access-Control-Allow-Credentials": true, "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT", "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"}, body: JSON.stringify({userIP: userIP})});
       // console.log(a);
       let r = await a.json();
       setIpTracker(r);
