@@ -45,17 +45,17 @@ function App() {
   useEffect(() => {
     // alert("second");
     const fetchData = async () => {
-      const response = await axios.get("https://api.ipify.org?format=json");
-      setIpAddress(response.data.ip);
-      console.log(response.data.ip);
-      let userIP = response.data.ip;
+      // const response = await axios.get("https://api.ipify.org?format=json");
+      // setIpAddress(response.data.ip);
+      // console.log(response.data.ip);
+      // let userIP = response.data.ip;
       setIpComplete(true);
       // axios.defaults.withCredentials = true;
-      let a = await fetch(`https://ip-tracker-server.vercel.app/`, { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({userIP: userIP})});
+      // let a = await fetch(`https://ip-tracker-server.vercel.app/`, { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({userIP: userIP})});
       // console.log(a);
-      let r = await a.json();
-      setIpTracker(r);
-      console.log(r);
+      // let r = await a.json();
+      // setIpTracker(r);
+      // console.log(r);
       // console.log(ipTracker.location.city);
       setLoadingComplete(true);
     }
